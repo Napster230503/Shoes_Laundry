@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Shoes_Laundry
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -28,6 +28,11 @@ namespace Shoes_Laundry
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
 
         }
