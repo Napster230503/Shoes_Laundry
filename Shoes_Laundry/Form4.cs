@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Shoes_Laundry
 {
-    public partial class FPassword : Form
+    public partial class HomePage : Form
     {
-        public FPassword()
+        public HomePage()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            Login mainform = new Login();
-            mainform.ShowDialog();
         }
     }
 }

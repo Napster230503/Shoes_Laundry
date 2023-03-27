@@ -34,7 +34,34 @@ namespace Shoes_Laundry
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            HomePage mainform = new HomePage();
+            if((txtUsername.Text =="admin") && (txtPassword.Text == "admin1"))
+            {
+                mainform.Show();
+            }
+            else
+            {
+                string text = "Username/Password yang anda masukan SALAH";
+                MessageBox.Show(text);
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+                this.Show();
+            }
+        }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            FPassword mainform = new FPassword();
+            mainform.ShowDialog();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            CreateNew mainform = new CreateNew();
+            mainform.ShowDialog();
         }
     }
 }
