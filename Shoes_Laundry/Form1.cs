@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,19 +35,25 @@ namespace Shoes_Laundry
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            HomePage mainform = new HomePage();
-            if((txtUsername.Text =="admin") && (txtPassword.Text == "admin1"))
+            string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
+            MySqlConnection db_con = new MySqlConnection(connectionString);
+            db_con.Open();
+            // Check if the username and password fields are empty
+            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
-                mainform.Show();
-            }
-            else
-            {
-                string text = "Username/Password yang anda masukan SALAH";
-                MessageBox.Show(text);
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                this.Show();
+                MessageBox.Show(this, "Please enter your username and password corectly!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                // Set focus to the first empty field
+                if (string.IsNullOrEmpty(txtUsername.Text))
+                {
+                    txtUsername.Focus();
+                }
+                else if (string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    txtPassword.Focus();
+                }
+
+                return;
             }
         }
 
