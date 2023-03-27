@@ -35,16 +35,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtBoD = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCrt = new System.Windows.Forms.Button();
             this.boxGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -109,36 +109,37 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "E-Mail";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(222, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(222, 70);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(228, 20);
+            this.txtName.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(80, 329);
+            this.label7.Location = new System.Drawing.Point(76, 329);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 24);
             this.label7.TabIndex = 7;
             this.label7.Text = "Password";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // textBox2
+            // txtMail
             // 
-            this.textBox2.Location = new System.Drawing.Point(222, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtMail.Location = new System.Drawing.Point(222, 108);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(228, 20);
+            this.txtMail.TabIndex = 8;
             // 
-            // textBox3
+            // txtBoD
             // 
-            this.textBox3.Location = new System.Drawing.Point(222, 147);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtBoD.Location = new System.Drawing.Point(222, 147);
+            this.txtBoD.Name = "txtBoD";
+            this.txtBoD.Size = new System.Drawing.Size(228, 20);
+            this.txtBoD.TabIndex = 9;
             // 
             // label8
             // 
@@ -150,28 +151,28 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Address";
             // 
-            // textBox5
+            // txtAddress
             // 
-            this.textBox5.Location = new System.Drawing.Point(222, 226);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(228, 57);
-            this.textBox5.TabIndex = 12;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.txtAddress.Location = new System.Drawing.Point(222, 226);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(228, 57);
+            this.txtAddress.TabIndex = 12;
+            this.txtAddress.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // textBox6
+            // txtUsername
             // 
-            this.textBox6.Location = new System.Drawing.Point(223, 297);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(228, 20);
-            this.textBox6.TabIndex = 13;
+            this.txtUsername.Location = new System.Drawing.Point(223, 297);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(228, 20);
+            this.txtUsername.TabIndex = 13;
             // 
-            // textBox7
+            // txtPassword
             // 
-            this.textBox7.Location = new System.Drawing.Point(223, 334);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(228, 20);
-            this.textBox7.TabIndex = 14;
+            this.txtPassword.Location = new System.Drawing.Point(223, 334);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(228, 20);
+            this.txtPassword.TabIndex = 14;
             // 
             // pictureBox1
             // 
@@ -183,20 +184,21 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnCrt
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(190, 376);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(440, 40);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "CREATE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCrt.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrt.Location = new System.Drawing.Point(190, 376);
+            this.btnCrt.Name = "btnCrt";
+            this.btnCrt.Size = new System.Drawing.Size(440, 40);
+            this.btnCrt.TabIndex = 16;
+            this.btnCrt.Text = "CREATE";
+            this.btnCrt.UseVisualStyleBackColor = false;
+            this.btnCrt.Click += new System.EventHandler(this.btnCrt_Click);
             // 
             // boxGender
             // 
+            this.boxGender.DisplayMember = "PRIA WANITA";
             this.boxGender.FormattingEnabled = true;
             this.boxGender.Items.AddRange(new object[] {
             "PRIA",
@@ -217,16 +219,16 @@
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.boxGender);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCrt);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBoD);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -250,16 +252,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.TextBox txtBoD;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCrt;
         private System.Windows.Forms.ComboBox boxGender;
     }
 }
