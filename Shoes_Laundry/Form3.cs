@@ -30,18 +30,30 @@ namespace Shoes_Laundry
             db_con.Open();
 
             //Isian semua data            
+                string name = txtName.Text.Trim();
+                string address = txtAddress.Text.Trim();
+                string telp = txtTelp.Text.Trim();
+                string mail = txtMail.Text.Trim();                
                 string username = txtUsername.Text.Trim();
                 string password = txtPassword.Text.Trim();
-                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                {
-                    MessageBox.Show("Username dan password harus diisi!");
-                    return;
-                }
-                string query = "INSERT INTO users (username, password) VALUES (@username, @password)";
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(telp) || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please fill in the above !!!");
+                return;
+            }
+            else
+            {
+                string query = "INSERT INTO account (name, mail, BoD, gender, address, username, password) VALUES (@name, @mail, @BoD, @gender, @address, @username, @password)";
                 try
                 {
-                    OpenConnection();
-                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    MySqlCommand command = new MySqlCommand(query);
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@mail", mail);
+                    command.Parameters.AddWithValue("@BoD", BoD);
+                    command.Parameters.AddWithValue("@gender", gender);
+                    command.Parameters.AddWithValue("@address", address);
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
                     int count = command.ExecuteNonQuery();
@@ -49,12 +61,17 @@ namespace Shoes_Laundry
                     {
                         MessageBox.Show("Akun berhasil dibuat!");
                         // reset textbox
+                        txtName.Text = "";
+                        txtMail.Text = "";
+                        txtTelp.Text = "";
+                        boxGender.Text = "";
+                        txtAddress.Text = "";
                         txtUsername.Text = "";
                         txtPassword.Text = "";
                     }
                     else
                     {
-                        MessageBox.Show("Gagal membuat akun!");
+                        MessageBox.Show("Failed to create your new account, Please try again!!");
                     }
                 }
                 catch (Exception ex)
@@ -63,9 +80,8 @@ namespace Shoes_Laundry
                 }
                 finally
                 {
-                    CloseConnection();
                 }
-            
+            }
 
         }
 
@@ -77,6 +93,21 @@ namespace Shoes_Laundry
         private void label7_Click(object sender, EventArgs e)
         {
              
+        }
+
+        private void CreateNew_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,36 +39,36 @@ namespace Shoes_Laundry
             MySqlConnection db_con = new MySqlConnection(connectionString);
             db_con.Open();
             // Check if the username and password fields are empty
-            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
-            {
+            if (string.IsNullOrEmpty(txtUsername.Text) || (string.IsNullOrEmpty(txtPassword.Text)))
+            {     
                 MessageBox.Show(this, "Please enter your username and password corectly!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
-                // Set focus to the first empty field
-                if (string.IsNullOrEmpty(txtUsername.Text))
-                {
-                    txtUsername.Focus();
-                }
-                else if (string.IsNullOrEmpty(txtPassword.Text))
-                {
-                    txtPassword.Focus();
-                }
-
-                return;
+            // Set focus to the first empty field
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                txtUsername.Focus();
             }
-        }
+            else if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                txtPassword.Focus();
+            }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Hide();
-            FPassword mainform = new FPassword();
-            mainform.ShowDialog();
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Hide();
-            CreateNew mainform = new CreateNew();
-            mainform.ShowDialog();
+            return;
         }
     }
+
+    private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        Hide();
+        FPassword mainform = new FPassword();
+        mainform.ShowDialog();
+    }
+
+    private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        Hide();
+        CreateNew mainform = new CreateNew();
+        mainform.ShowDialog();
+    }
+}
 }
