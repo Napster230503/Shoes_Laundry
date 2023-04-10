@@ -47,9 +47,6 @@ namespace Shoes_Laundry
                     string query = "INSERT INTO employee (emp_name, emp_address, emp_tlp, emp_mail, emp_username, emp_pass) VALUES (@name, @address, @telp, @mail,  @username, @password)";
                     try
                     {
-                    //koneksi2.OpenCOnnection();
-                    //MySqlConnection dbcon = new MySqlConnection(shoes_laundry);
-                    //MySqlConnection dbcon = new MySqlConnection(koneksi2);
                     MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
                     conn.Open();
                     MySqlCommand command = new MySqlCommand(query, conn);

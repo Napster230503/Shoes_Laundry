@@ -102,5 +102,12 @@ namespace Shoes_Laundry
         CreateNew mainform = new CreateNew();
         mainform.ShowDialog();
     }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            FPassword mainform = new FPassword();
+            mainform.ShowDialog();
+        }
     }
 }
