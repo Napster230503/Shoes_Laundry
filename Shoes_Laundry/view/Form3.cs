@@ -17,9 +17,6 @@ namespace Shoes_Laundry
     public partial class CreateNew : Form
     {
       Koneksi koneksi2 = new Koneksi();
-        
-      
-
         public CreateNew()
         {
             InitializeComponent();
