@@ -16,5 +16,10 @@ namespace Shoes_Laundry
         {
             InitializeComponent();
         }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

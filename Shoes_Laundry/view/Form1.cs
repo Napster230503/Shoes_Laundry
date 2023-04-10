@@ -28,26 +28,23 @@ namespace Shoes_Laundry
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-        private void proc_login()
+
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
-            MySqlConnection db_con = new MySqlConnection(connectionString);
-            db_con.Open();
-
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
 
             // Check if the username and password fields are empty
-            if (string.IsNullOrEmpty(txtUsername.Text) || (string.IsNullOrEmpty(txtPassword.Text)))
+            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
-                MessageBox.Show(this, "Please enter your username and password corectly!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, "Please enter username and password!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 // Set focus to the first empty field
                 if (string.IsNullOrEmpty(txtUsername.Text))
@@ -58,48 +55,52 @@ namespace Shoes_Laundry
                 {
                     txtPassword.Focus();
                 }
-                else
-                {
-                    MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
-                    conn.Open();
-                        MySqlCommand cmd = new MySqlCommand("SELECT * FROM employee WHERE emp_username=@username AND emp_pass=@password", conn);
-                        cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-                        cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                    conn.Open();
-                        MySqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        MessageBox.Show("Login successful!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.");
-                    }
-                    conn.Close();
-                }
+
                 return;
             }
-        }
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            HomePage mainform = new HomePage();
-            mainform.Show();    
-            proc_login();
-        }
 
-    private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-        Hide();
-        FPassword mainform = new FPassword();
-        mainform.ShowDialog();
-    }
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
 
+                // Create a MySQL query to select the user with the specified username and hashed password
+                string query = "SELECT * FROM employee WHERE emp_username = @username AND emp_pass = @password";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    // Add parameters to the query
+                    command.Parameters.AddWithValue("@username", txtUsername.Text);
+                    command.Parameters.AddWithValue("@password", txtPassword.Text);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            // Login successful, get the username and open the next form
+                            reader.Read();
+                            string username = reader["emp_username"].ToString();
+                            MessageBox.Show(this, "Login Succes!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            // Create the next form with the username as parameter and show it
+                            HomePage f4 = new HomePage();
+                            f4.Show();
+
+                            // Hide the current form
+                            this.Hide();
+                        }
+                        else
+                        {
+                            // Login failed, show an error message
+                            MessageBox.Show(this, "Invalid username and password!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        }
+                    }
+                }
+            }
+        }
     private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         Hide();
         CreateNew mainform = new CreateNew();
         mainform.ShowDialog();
     }
-}
+    }
 }
