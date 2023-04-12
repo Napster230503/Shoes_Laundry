@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using db_shoes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace Shoes_Laundry.view
 {
     public partial class insertdata : Form
     {
+        Koneksi koneksi = new Koneksi();
         public insertdata()
         {
             InitializeComponent();
@@ -49,5 +51,41 @@ namespace Shoes_Laundry.view
             }
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            Hide();
+            HomePage mainform = new HomePage();
+            mainform.Show();
+        }
     }
 }
