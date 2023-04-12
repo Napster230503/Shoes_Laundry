@@ -27,21 +27,31 @@ namespace Shoes_Laundry
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Hide();
-            insertdata mainform = new insertdata();
-            mainform.Show();
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             Hide();
             showdata mainform = new showdata();
             mainform.Show();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            insertdata mainform = new insertdata();
+            mainform.Show();
         }
     }
 }
