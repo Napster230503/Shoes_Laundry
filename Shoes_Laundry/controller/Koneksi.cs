@@ -12,7 +12,7 @@ namespace db_shoes
 {
     class Koneksi
     {
-        string conectionstring = "Server=localhost;Database=shoes_laundry(2);Uid=root;Pwd=;";
+        string conectionstring = "Server=localhost;Database=shoes_laundry(3);Uid=root;Pwd=;";
         MySqlConnection kon;
         public void OpenCOnnection()
         {

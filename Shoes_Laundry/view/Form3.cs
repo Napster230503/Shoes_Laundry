@@ -47,7 +47,7 @@ namespace Shoes_Laundry
                     string query = "INSERT INTO employee (emp_name, emp_address, emp_tlp, emp_mail, emp_username, emp_pass) VALUES (@name, @address, @telp, @mail,  @username, @password)";
                     try
                     {
-                    MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry(2);uid=root;password=;");
+                    MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry(3);uid=root;password=;");
                     conn.Open();
                     MySqlCommand command = new MySqlCommand(query, conn);
                         command.Parameters.AddWithValue("@name", name);

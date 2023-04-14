@@ -34,7 +34,7 @@ namespace Shoes_Laundry.view
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry(2);uid=root;password=;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry(3);uid=root;password=;");
 
                 string selectQuery = "SELECT * FROM shoes_laundry.employee";
                 connection.Open();
