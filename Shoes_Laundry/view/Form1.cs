@@ -39,7 +39,7 @@ namespace Shoes_Laundry
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
+            string connectionString = "server=localhost;port=3306;database=shoes_laundry(2);uid=root;password=;";
 
             // Check if the username and password fields are empty
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))

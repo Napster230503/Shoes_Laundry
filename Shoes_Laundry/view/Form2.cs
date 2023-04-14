@@ -38,7 +38,7 @@ namespace Shoes_Laundry
                 string query = "UPDATE employee SET emp_pass = @password where emp_name = @username";
                 try
                 {
-                    MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
+                    MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry(2);uid=root;password=;");
                         conn.Open();
                     MySqlCommand command = new MySqlCommand(query, conn);
                         command.Parameters.AddWithValue("@username", username);
