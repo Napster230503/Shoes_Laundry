@@ -19,10 +19,7 @@ namespace Shoes_Laundry.view
     {
         Koneksi koneksi = new Koneksi();
 
-        public void tampil()
-        {
 
-        }
         public showdata()
         {
             InitializeComponent();
@@ -30,7 +27,8 @@ namespace Shoes_Laundry.view
 
         private void showdatapage_Load(object sender, EventArgs e)
         {
-            tampil();
+            Tampil();
+            Cari();
         }
 
         private void btnback_Click(object sender, EventArgs e)
@@ -54,14 +52,9 @@ namespace Shoes_Laundry.view
             ordertable.Columns[6].HeaderText = "Stat Payment";
         }
 
-
-        private void ordertable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void Cari()
         {
-            Tampil();
-
-
-
-            /*string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
+            string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -69,7 +62,7 @@ namespace Shoes_Laundry.view
                 string s_pcg = btn_src.Text;
                 try
                 {
-                    MySqlCommand conn = new MySqlCommand("SELECT * FROM package WHERE(pack_name='" + s_pcg + "')", connection);
+                    MySqlCommand conn = new MySqlCommand("SELECT * FROM orderr WHERE(order_date='" + s_pcg + "')", connection);
                     MySqlDataReader reader;
                     reader = conn.ExecuteReader();
                     while (reader.Read())
@@ -86,15 +79,13 @@ namespace Shoes_Laundry.view
                 {
                     connection.Close();
                 }
-            }*/
+            }
         }
 
-        private void buttonShow(object sender, EventArgs e)
+        private void ordertable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Tampil();
         }
-
-
    
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -103,19 +94,19 @@ namespace Shoes_Laundry.view
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
             
         }
 
-        //FILTER
-        private void btnFilter()
-        {
-            
-        }
+        //SRC
 
         private void cmb_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSrc_TextChanged(object sender, EventArgs e)
+        {
+            Cari();
         }
     }
 }

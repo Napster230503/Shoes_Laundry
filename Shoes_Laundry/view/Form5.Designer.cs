@@ -33,6 +33,7 @@
             this.ordertable = new System.Windows.Forms.DataGridView();
             this.btnback = new System.Windows.Forms.Button();
             this.btn_src = new System.Windows.Forms.Button();
+            this.txtSrc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ordertable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // ordertable
             // 
             this.ordertable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ordertable.Location = new System.Drawing.Point(51, 86);
+            this.ordertable.Location = new System.Drawing.Point(51, 123);
             this.ordertable.Name = "ordertable";
             this.ordertable.Size = new System.Drawing.Size(699, 350);
             this.ordertable.TabIndex = 2;
@@ -79,12 +80,21 @@
             this.btn_src.UseVisualStyleBackColor = false;
             this.btn_src.Click += new System.EventHandler(this.buttonShow);
             // 
+            // txtSrc
+            // 
+            this.txtSrc.Location = new System.Drawing.Point(51, 97);
+            this.txtSrc.Name = "txtSrc";
+            this.txtSrc.Size = new System.Drawing.Size(188, 20);
+            this.txtSrc.TabIndex = 6;
+            this.txtSrc.TextChanged += new System.EventHandler(this.txtSrc_TextChanged);
+            // 
             // showdata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(800, 578);
+            this.Controls.Add(this.txtSrc);
             this.Controls.Add(this.btn_src);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.ordertable);
@@ -105,5 +115,6 @@
         private System.Windows.Forms.DataGridView ordertable;
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.Button btn_src;
+        private System.Windows.Forms.TextBox txtSrc;
     }
 }
