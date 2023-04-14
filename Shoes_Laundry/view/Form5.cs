@@ -1,11 +1,13 @@
 ﻿using db_shoes;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -20,7 +22,9 @@ namespace Shoes_Laundry.view
     {
         Koneksi koneksi = new Koneksi();
 
-
+        MySqlCommand cmd;
+        MySqlConnection conn;
+        MySqlDataReader reader;
         public showdata()
         {
             InitializeComponent();
@@ -75,34 +79,50 @@ namespace Shoes_Laundry.view
 
         private void txtSrc_TextChanged(object sender, EventArgs e)
         {
+            ordertable.Rows.Clear();
+            string conStr;
+            conStr = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
 
+            conn = new MySqlConnection(conStr);
+            conn.Open();
+            try
+            {
+                cmd = new MySqlCommand("Select * From orderr where '%"+txtSrc+"%' or stat_payment like '%"+ordertable.Text+"%'or order_date like '%"+ordertable.Text+"%'", conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    ordertable.Rows.Add(reader["order_id"].ToString(), reader["order_date"].ToString(), reader["emp_id"].ToString(), reader["cust_id"].ToString(), reader["pack_id"].ToString(), reader["stat_order"].ToString(), reader["stat_payment"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> Search = new List<string>();
+            ordertable.Rows.Clear();
+            string conStr;
+            conStr = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
 
-            MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
-            MySqlDataReader reader;
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "Select * From orderr Where order_date LIKE '%\"+txtSrc.Text+\"%' ";
-            cmd.Parameters.AddWithValue("@order_date", txtSrc.Text);
-
+            conn = new MySqlConnection(conStr);
             conn.Open();
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                string course = reader["order_date"].ToString();
-                course += ", " + reader["CourseDescription"].ToString();
-                Search.Add(course);
+            try
+            { 
+                cmd = new MySqlCommand("Select * From orderr", conn);
+                reader = cmd.ExecuteReader();   
+                while (reader.Read()) 
+                {
+                    ordertable.Rows.Add(reader["order_id"].ToString(), reader["order_date"].ToString(), reader["emp_id"].ToString(), reader["cust_id"].ToString(), reader["pack_id"].ToString(), reader["stat_order"].ToString(), reader["stat_payment"].ToString());
+                }
             }
-            reader.Close();
-
-            foreach (string src in Search)
+            catch (Exception ex) 
             {
-                //wherever and however you would like to display
+                MessageBox.Show(ex.Message);
             }
         }
     }
 }
+
+//order_id, order_date, emp_id, cust_id, pack_id, stat_order, stat_payment
