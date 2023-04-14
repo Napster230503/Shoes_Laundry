@@ -53,5 +53,12 @@ namespace Shoes_Laundry
             insertdata mainform = new insertdata();
             mainform.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Login mainform = new Login();
+            mainform.Show();
+        }
     }
 }
