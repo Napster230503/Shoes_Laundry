@@ -20,15 +20,14 @@ namespace Shoes_Laundry.view
         }
         public void Tampil()
         {
-            ordertable.DataSource = koneksi.ShowData("select * from orderr");
-            ordertable.Columns[0].HeaderText = "Oder ID";
-            ordertable.Columns[1].HeaderText = "Order Date";
-            ordertable.Columns[2].HeaderText = "Employee ID";
-            ordertable.Columns[3].HeaderText = "Customer ID";
-            ordertable.Columns[4].HeaderText = "Pack ID";
-            ordertable.Columns[5].HeaderText = "Total";
-            ordertable.Columns[6].HeaderText = "Stat Order";
-            ordertable.Columns[6].HeaderText = "Stat Payment";
+            employeetable.DataSource = koneksi.ShowData("select * from employee");
+            employeetable.Columns[0].HeaderText = "Employee ID";
+            employeetable.Columns[1].HeaderText = "Name";
+            employeetable.Columns[2].HeaderText = "Address";
+            employeetable.Columns[3].HeaderText = "Phone Number";
+            employeetable.Columns[4].HeaderText = "Email";
+            employeetable.Columns[5].HeaderText = "Username";
+            employeetable.Columns[6].HeaderText = "Paswword";
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
