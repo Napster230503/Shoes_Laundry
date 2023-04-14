@@ -61,7 +61,7 @@ namespace Shoes_Laundry.view
 
 
 
-            /*string connectionString = "server=localhost;port=3306;database=shoes_laundry(3);uid=root;password=;";
+            /*string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
