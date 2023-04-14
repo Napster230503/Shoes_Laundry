@@ -125,11 +125,11 @@
             // 
             // btnback
             // 
-            this.btnback.BackColor = System.Drawing.Color.SlateGray;
-            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.Location = new System.Drawing.Point(325, 396);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(153, 42);
+            this.btnback.Size = new System.Drawing.Size(153, 31);
             this.btnback.TabIndex = 18;
             this.btnback.Text = "BACK";
             this.btnback.UseVisualStyleBackColor = false;

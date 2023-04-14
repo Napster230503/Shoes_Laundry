@@ -187,9 +187,9 @@
             // 
             this.btnCrt.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrt.Location = new System.Drawing.Point(251, 323);
+            this.btnCrt.Location = new System.Drawing.Point(196, 309);
             this.btnCrt.Name = "btnCrt";
-            this.btnCrt.Size = new System.Drawing.Size(200, 40);
+            this.btnCrt.Size = new System.Drawing.Size(273, 49);
             this.btnCrt.TabIndex = 16;
             this.btnCrt.Text = "CREATE";
             this.btnCrt.UseVisualStyleBackColor = false;
@@ -197,11 +197,11 @@
             // 
             // btnback
             // 
-            this.btnback.BackColor = System.Drawing.Color.SlateGray;
-            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnback.Location = new System.Drawing.Point(272, 387);
+            this.btnback.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.Location = new System.Drawing.Point(246, 373);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(153, 42);
+            this.btnback.Size = new System.Drawing.Size(153, 33);
             this.btnback.TabIndex = 17;
             this.btnback.Text = "BACK";
             this.btnback.UseVisualStyleBackColor = false;
