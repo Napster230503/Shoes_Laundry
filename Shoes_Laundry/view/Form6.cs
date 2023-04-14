@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Shoes_Laundry.view
 {
@@ -27,28 +28,127 @@ namespace Shoes_Laundry.view
 
         private void InsertData_Load(object sender, EventArgs e)
         {
+            try
+            {
+                string konek = "Server=localhost;Database=shoes_laundry;Uid=root;Pwd=;";
+
+                MySqlConnection con;
+                con = new MySqlConnection(konek);
+                con.Open();
+
+                MySqlConnection con2;
+                con2 = new MySqlConnection(konek);
+                con2.Open();
+
+                MySqlConnection con3;
+                con3 = new MySqlConnection(konek);
+                con3.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                MySqlCommand cmd2 = new MySqlCommand();
+                MySqlCommand cmd3 = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd2.Connection = con2;
+                cmd3.Connection = con3;
+
+                String query = "Select * from employee";
+                String query2 = "Select * from customer";
+                String query3 = "Select * from package";
+
+                cmd.CommandText = query;
+                cmd2.CommandText = query2;
+                cmd3.CommandText = query3;
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlDataReader reader2 = cmd2.ExecuteReader();
+                MySqlDataReader reader3 = cmd3.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader["emp_id"].ToString() + " - " + reader["emp_name"].ToString());
+                }
+
+                con.Close();
+
+
+                while (reader2.Read())
+                {
+
+                    comboBox2.Items.Add(reader2["cust_id"].ToString() + " - " + reader2["cust_name"].ToString());
+                }
+
+
+                con2.Close();
+
+                while (reader3.Read())
+                {
+                    comboBox3.Items.Add(reader3["pack_id"].ToString() + " - " + reader3["pack_name"].ToString());
+                }
+
+                con3.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error" + ex);
+            }
+
+            {
+                //Isian semua data            
+                DateTime orderdate = dateTimePicker1.Value.Date;
+                string empid = comboBox1.SelectedItem.ToString();
+                string custid = comboBox2.SelectedItem.ToString();
+                string packid = comboBox3.SelectedItem.ToString();
+                string total = textBox1.Text.Trim();
+                string statorder = comboBox4.SelectedItem.ToString();
+                string statpayment = comboBox5.SelectedItem.ToString();
+
+                
+                    string query = "INSERT INTO orderr (order_date, emp_id, cust_id, pack_id, total, stat_order, stat_payment) VALUES (@orderdate, @empid, @custid, @packid,  @total, @statorder, @statpayment)";
+                    try
+                    {
+                        MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
+                        conn.Open();
+                        MySqlCommand command = new MySqlCommand(query, conn);
+                        command.Parameters.AddWithValue("@orderdate", orderdate);
+                        command.Parameters.AddWithValue("@empid", empid);
+                        command.Parameters.AddWithValue("@custid", custid);
+                        command.Parameters.AddWithValue("@packid", packid);
+                        command.Parameters.AddWithValue("@total", total);
+                        command.Parameters.AddWithValue("@statorder", statorder);
+                        command.Parameters.AddWithValue("@statpayment", statpayment);
+                    int count = command.ExecuteNonQuery();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Your Order Data Has Been Succsess Added");
+                            // reset textbox
+                            dateTimePicker1.Text = "";
+                            comboBox1.Text = "";
+                            comboBox2.Text = "";
+                            comboBox3.Text = "";
+                            textBox1.Text = "";
+                            comboBox4.Text = "";
+                            comboBox5.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to insert new data order, Please try again!!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                    }
+                }
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry(2);uid=root;password=;");
-
-                string selectQuery = "SELECT * FROM shoes_laundry.employee";
-                connection.Open();
-                MySqlCommand command = new MySqlCommand(selectQuery, connection);
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    comboBox1.Items.Add(reader.GetString("emp_id"));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
