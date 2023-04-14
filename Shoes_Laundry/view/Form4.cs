@@ -60,5 +60,12 @@ namespace Shoes_Laundry
             Login mainform = new Login();
             mainform.Show();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            dataemployee mainform = new dataemployee();
+            mainform.Show();
+        }
     }
 }
