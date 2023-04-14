@@ -58,35 +58,6 @@ namespace Shoes_Laundry.view
         private void ordertable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Tampil();
-
-
-
-            /*string connectionString = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string s_pcg = btn_src.Text;
-                try
-                {
-                    MySqlCommand conn = new MySqlCommand("SELECT * FROM package WHERE(pack_name='" + s_pcg + "')", connection);
-                    MySqlDataReader reader;
-                    reader = conn.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        btn_src.Text = reader.GetValue(0).ToString();
-                    }
-                    connection.Close();
-                }
-                catch (Exception s)
-                {
-                    MessageBox.Show("Error when search, please try again" + s);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }*/
         }
 
         private void buttonShow(object sender, EventArgs e)
