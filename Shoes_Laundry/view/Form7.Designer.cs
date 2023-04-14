@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dataemployee));
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.employeetable = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.employeetable)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -46,16 +46,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "SHOES LAUNDRY";
             // 
-            // dataGridView1
+            // employeetable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(67, 138);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 56;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(909, 305);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.employeetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeetable.Location = new System.Drawing.Point(67, 138);
+            this.employeetable.Name = "employeetable";
+            this.employeetable.RowHeadersWidth = 56;
+            this.employeetable.RowTemplate.Height = 24;
+            this.employeetable.Size = new System.Drawing.Size(909, 305);
+            this.employeetable.TabIndex = 3;
+            this.employeetable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataemployee
             // 
@@ -63,12 +63,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1040, 605);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.employeetable);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "dataemployee";
             this.Text = "Data Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeetable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,6 +77,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView employeetable;
     }
 }

@@ -49,7 +49,7 @@ namespace Shoes_Laundry.view
             ordertable.Columns[4].HeaderText = "Pack ID";
             ordertable.Columns[5].HeaderText = "Total";
             ordertable.Columns[6].HeaderText = "Stat Order";
-            ordertable.Columns[6].HeaderText = "Stat Payment";
+            ordertable.Columns[7].HeaderText = "Stat Payment";
         }
 
         public void Cari()
