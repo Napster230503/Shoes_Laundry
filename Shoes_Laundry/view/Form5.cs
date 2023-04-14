@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Shoes_Laundry.view
 {
@@ -28,7 +29,6 @@ namespace Shoes_Laundry.view
         private void showdatapage_Load(object sender, EventArgs e)
         {
             Tampil();
-            Cari();
         }
 
         private void btnback_Click(object sender, EventArgs e)
@@ -51,12 +51,6 @@ namespace Shoes_Laundry.view
             ordertable.Columns[6].HeaderText = "Stat Order";
             ordertable.Columns[7].HeaderText = "Stat Payment";
         }
-
-        public void Cari()
-        {
-            Tampil();
-        }
-
         private void ordertable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Tampil();
@@ -81,7 +75,34 @@ namespace Shoes_Laundry.view
 
         private void txtSrc_TextChanged(object sender, EventArgs e)
         {
-            Cari();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string> Courses = new List<string>();
+
+            MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
+            MySqlDataReader reader;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Select * From orderr Where order_date LIKE '%\"+txtSrc.Text+\"%' ";
+            cmd.Parameters.AddWithValue("@order_date", txtSrc.Text);
+
+            conn.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string course = reader["CourseName"].ToString();
+                course += ", " + reader["CourseDescription"].ToString();
+                Courses.Add(course);
+            }
+            reader.Close();
+
+            foreach (string course in Courses)
+            {
+                //wherever and however you would like to display
+            }
         }
     }
 }
