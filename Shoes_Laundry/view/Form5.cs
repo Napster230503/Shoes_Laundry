@@ -80,7 +80,7 @@ namespace Shoes_Laundry.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> Courses = new List<string>();
+            List<string> Search = new List<string>();
 
             MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
             MySqlDataReader reader;
@@ -93,13 +93,13 @@ namespace Shoes_Laundry.view
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                string course = reader["CourseName"].ToString();
+                string course = reader["order_date"].ToString();
                 course += ", " + reader["CourseDescription"].ToString();
-                Courses.Add(course);
+                Search.Add(course);
             }
             reader.Close();
 
-            foreach (string course in Courses)
+            foreach (string src in Search)
             {
                 //wherever and however you would like to display
             }
