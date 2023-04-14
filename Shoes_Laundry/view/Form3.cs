@@ -111,5 +111,12 @@ namespace Shoes_Laundry
         {
 
         }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Login mainform = new Login();
+            mainform.Show();
+        }
     }
 }

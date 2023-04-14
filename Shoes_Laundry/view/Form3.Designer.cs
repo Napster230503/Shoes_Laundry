@@ -44,6 +44,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCrt = new System.Windows.Forms.Button();
+            this.btnback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,13 +187,25 @@
             // 
             this.btnCrt.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrt.Location = new System.Drawing.Point(190, 324);
+            this.btnCrt.Location = new System.Drawing.Point(251, 323);
             this.btnCrt.Name = "btnCrt";
-            this.btnCrt.Size = new System.Drawing.Size(440, 40);
+            this.btnCrt.Size = new System.Drawing.Size(200, 40);
             this.btnCrt.TabIndex = 16;
             this.btnCrt.Text = "CREATE";
             this.btnCrt.UseVisualStyleBackColor = false;
             this.btnCrt.Click += new System.EventHandler(this.Show);
+            // 
+            // btnback
+            // 
+            this.btnback.BackColor = System.Drawing.Color.SlateGray;
+            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.Location = new System.Drawing.Point(272, 387);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(153, 42);
+            this.btnback.TabIndex = 17;
+            this.btnback.Text = "BACK";
+            this.btnback.UseVisualStyleBackColor = false;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
             // CreateNew
             // 
@@ -201,6 +214,7 @@
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.btnCrt);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPassword);
@@ -243,5 +257,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCrt;
+        private System.Windows.Forms.Button btnback;
     }
 }
