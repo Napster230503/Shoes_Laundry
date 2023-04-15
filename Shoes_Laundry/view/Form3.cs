@@ -29,27 +29,29 @@ namespace Shoes_Laundry
 
         public void Show(object sender, EventArgs e)
         {
-                //Isian semua data            
-                string name = txtName.Text.Trim();
-                string address = txtAddress.Text.Trim();
-                string telp = txtTelp.Text.Trim();
-                string mail = txtMail.Text.Trim();
-                string username = txtUsername.Text.Trim();
-                string password = txtPassword.Text.Trim();
+            //Isian semua data
+            string id = txtID.Text.Trim();
+            string name = txtName.Text.Trim();
+            string address = txtAddress.Text.Trim();
+            string telp = txtTelp.Text.Trim();
+            string mail = txtMail.Text.Trim();
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(telp) || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(telp) || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show("Please fill in the above !!!");
                     return;
                 }
                 else
                 {
-                    string query = "INSERT INTO employee (emp_name, emp_address, emp_tlp, emp_mail, emp_username, emp_pass) VALUES (@name, @address, @telp, @mail,  @username, @password)";
+                    string query = "INSERT INTO employee (emp_id, emp_name, emp_address, emp_tlp, emp_mail, emp_username, emp_pass) VALUES (@id, @name, @address, @telp, @mail,  @username, @password)";
                     try
                     {
                     MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=shoes_laundry;uid=root;password=;");
                     conn.Open();
                     MySqlCommand command = new MySqlCommand(query, conn);
+                        command.Parameters.AddWithValue("@id", id);
                         command.Parameters.AddWithValue("@name", name);
                         command.Parameters.AddWithValue("@address", address);
                         command.Parameters.AddWithValue("@Telp", telp);
@@ -61,6 +63,7 @@ namespace Shoes_Laundry
                         {
                             MessageBox.Show("Your Account Has Been Succsess Added");
                             // reset textbox
+                            txtID.Text = "";
                             txtName.Text = "";
                             txtAddress.Text = "";
                             txtTelp.Text = "";
@@ -117,6 +120,11 @@ namespace Shoes_Laundry
             Hide();
             Login mainform = new Login();
             mainform.Show();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
