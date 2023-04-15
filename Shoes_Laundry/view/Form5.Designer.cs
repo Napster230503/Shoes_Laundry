@@ -32,7 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ordertable = new System.Windows.Forms.DataGridView();
             this.btnback = new System.Windows.Forms.Button();
-            this.btn_src = new System.Windows.Forms.Button();
+            this.btn_show = new System.Windows.Forms.Button();
+            this.txtSrc = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ordertable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // ordertable
             // 
             this.ordertable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ordertable.Location = new System.Drawing.Point(51, 86);
+            this.ordertable.Location = new System.Drawing.Point(51, 123);
             this.ordertable.Name = "ordertable";
             this.ordertable.Size = new System.Drawing.Size(699, 350);
             this.ordertable.TabIndex = 2;
@@ -67,17 +69,34 @@
             this.btnback.UseVisualStyleBackColor = false;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
-            // btn_src
+            // btn_show
             // 
-            this.btn_src.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_src.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_src.Location = new System.Drawing.Point(51, 514);
-            this.btn_src.Name = "btn_src";
-            this.btn_src.Size = new System.Drawing.Size(137, 33);
-            this.btn_src.TabIndex = 5;
-            this.btn_src.Text = "SHOW DATA";
-            this.btn_src.UseVisualStyleBackColor = false;
-            this.btn_src.Click += new System.EventHandler(this.buttonShow);
+            this.btn_show.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_show.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show.Location = new System.Drawing.Point(51, 514);
+            this.btn_show.Name = "btn_show";
+            this.btn_show.Size = new System.Drawing.Size(137, 33);
+            this.btn_show.TabIndex = 5;
+            this.btn_show.Text = "SHOW DATA";
+            this.btn_show.UseVisualStyleBackColor = false;
+            // 
+            // txtSrc
+            // 
+            this.txtSrc.Location = new System.Drawing.Point(51, 97);
+            this.txtSrc.Name = "txtSrc";
+            this.txtSrc.Size = new System.Drawing.Size(188, 20);
+            this.txtSrc.TabIndex = 6;
+            this.txtSrc.TextChanged += new System.EventHandler(this.txtSrc_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(257, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "SEARCH";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // showdata
             // 
@@ -85,7 +104,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(800, 578);
-            this.Controls.Add(this.btn_src);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtSrc);
+            this.Controls.Add(this.btn_show);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.ordertable);
             this.Controls.Add(this.label1);
@@ -104,6 +125,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView ordertable;
         private System.Windows.Forms.Button btnback;
-        private System.Windows.Forms.Button btn_src;
+        private System.Windows.Forms.Button btn_show;
+        private System.Windows.Forms.TextBox txtSrc;
+        private System.Windows.Forms.Button button1;
     }
 }
