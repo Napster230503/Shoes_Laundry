@@ -101,27 +101,6 @@ namespace Shoes_Laundry.view
             }
         }
 
-        //public bool Delete(string id)
-        //{
-        //    Boolean status = false;
-        //    try
-        //    {
-        //        Koneksi koneksi = new Koneksi();
-
-        //        koneksi.ExecuteQuery("delete from employee where emp_id=" + int.Parse(id));
- 
-        //        status = true;
-        //        MessageBox.Show("Data berhasil dihapus", "berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    return status;
-        //}
-
-
         private void dataemployee_Load(object sender, EventArgs e)
         {
 
