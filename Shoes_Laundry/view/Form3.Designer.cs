@@ -178,7 +178,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(544, 70);
+            this.pictureBox1.Location = new System.Drawing.Point(500, 68);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(234, 248);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -223,7 +223,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(222, 104);
+            this.txtID.Location = new System.Drawing.Point(223, 104);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(228, 20);
             this.txtID.TabIndex = 19;
