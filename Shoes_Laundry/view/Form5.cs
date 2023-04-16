@@ -102,7 +102,7 @@ namespace Shoes_Laundry.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ordertable.Rows.Clear();
+            //ordertable.Rows.Clear();
             string conStr;
             conStr = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
 
@@ -124,5 +124,3 @@ namespace Shoes_Laundry.view
         }
     }
 }
-
-//order_id, order_date, emp_id, cust_id, pack_id, stat_order, stat_payment
