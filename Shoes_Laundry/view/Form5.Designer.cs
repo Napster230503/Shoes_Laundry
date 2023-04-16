@@ -34,7 +34,7 @@
             this.btnback = new System.Windows.Forms.Button();
             this.btn_show = new System.Windows.Forms.Button();
             this.txtSrc = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ordertable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(250, 30);
+            this.label1.Location = new System.Drawing.Point(250, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 41);
             this.label1.TabIndex = 1;
@@ -51,7 +51,7 @@
             // ordertable
             // 
             this.ordertable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ordertable.Location = new System.Drawing.Point(51, 123);
+            this.ordertable.Location = new System.Drawing.Point(51, 144);
             this.ordertable.Name = "ordertable";
             this.ordertable.Size = new System.Drawing.Size(699, 350);
             this.ordertable.TabIndex = 2;
@@ -79,24 +79,27 @@
             this.btn_show.TabIndex = 5;
             this.btn_show.Text = "SHOW DATA";
             this.btn_show.UseVisualStyleBackColor = false;
+            this.btn_show.Click += new System.EventHandler(this.btn_show_Click);
             // 
             // txtSrc
             // 
-            this.txtSrc.Location = new System.Drawing.Point(51, 97);
+            this.txtSrc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSrc.Location = new System.Drawing.Point(251, 105);
             this.txtSrc.Name = "txtSrc";
-            this.txtSrc.Size = new System.Drawing.Size(188, 20);
+            this.txtSrc.Size = new System.Drawing.Size(300, 24);
             this.txtSrc.TabIndex = 6;
             this.txtSrc.TextChanged += new System.EventHandler(this.txtSrc_TextChanged);
+            this.txtSrc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSrc_KeyPress);
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(257, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "SEARCH";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(48, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(197, 18);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Search Data by Pack ID :";
             // 
             // showdata
             // 
@@ -104,7 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(800, 578);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSrc);
             this.Controls.Add(this.btn_show);
             this.Controls.Add(this.btnback);
@@ -127,6 +130,6 @@
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.Button btn_show;
         private System.Windows.Forms.TextBox txtSrc;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }

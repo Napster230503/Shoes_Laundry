@@ -32,7 +32,7 @@ namespace Shoes_Laundry.view
 
         private void showdatapage_Load(object sender, EventArgs e)
         {
-            Tampil();
+            
         }
 
         private void btnback_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace Shoes_Laundry.view
         }
         private void ordertable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Tampil();
+            
         }
    
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -79,48 +79,31 @@ namespace Shoes_Laundry.view
 
         private void txtSrc_TextChanged(object sender, EventArgs e)
         {
-            ordertable.Rows.Clear();
-            string conStr;
-            conStr = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
-
-            conn = new MySqlConnection(conStr);
-            conn.Open();
-            try
-            {
-                cmd = new MySqlCommand("Select * From orderr where '%"+txtSrc+"%' or stat_payment like '%"+ordertable.Text+"%'or order_date like '%"+ordertable.Text+"%'", conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    ordertable.Rows.Add(reader["order_id"].ToString(), reader["order_date"].ToString(), reader["emp_id"].ToString(), reader["cust_id"].ToString(), reader["pack_id"].ToString(), reader["stat_order"].ToString(), reader["stat_payment"].ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txtSrc_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //ordertable.Rows.Clear();
-            string conStr;
-            conStr = "server=localhost;port=3306;database=shoes_laundry;uid=root;password=;";
+            string connectionString = "Server=localhost;Database=shoes_laundry;Uid=root;Pwd=;";
+            MySqlConnection con = new MySqlConnection(connectionString);
+            con.Open();
+            string query = "SELECT * FROM orderr WHERE pack_id LIKE @search";
 
-            conn = new MySqlConnection(conStr);
-            conn.Open();
-            try
-            { 
-                cmd = new MySqlCommand("Select * From orderr", conn);
-                reader = cmd.ExecuteReader();   
-                while (reader.Read()) 
-                {
-                    ordertable.Rows.Add(reader["order_id"].ToString(), reader["order_date"].ToString(), reader["emp_id"].ToString(), reader["cust_id"].ToString(), reader["pack_id"].ToString(), reader["stat_order"].ToString(), reader["stat_payment"].ToString());
-                }
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show(ex.Message);
-            }
+            MySqlCommand command = new MySqlCommand(query, con);
+            command.Parameters.AddWithValue("@search", "%" + txtSrc.Text + "%");
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            ordertable.DataSource = table;
+
+            con.Close();
+        }
+
+        private void btn_show_Click(object sender, EventArgs e)
+        {
+            Tampil();
         }
     }
 }

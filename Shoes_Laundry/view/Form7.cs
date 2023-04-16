@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Shoes_Laundry.view
 {
@@ -79,12 +80,12 @@ namespace Shoes_Laundry.view
                 if (rowsAffected > 0)
                 {
                     // Tampilkan pesan berhasil
-                    MessageBox.Show("Data berhasil dihapus dari database.");
+                    MessageBox.Show("Data deleted successfully.");
                     Tampil();
                 }
                 else
                 {
-                    MessageBox.Show("Data dengan ID tersebut tidak ditemukan di database.");
+                    MessageBox.Show("Data with that ID is not found in the database.");
                     Tampil();
                 }
 
@@ -92,7 +93,7 @@ namespace Shoes_Laundry.view
             catch (Exception ex)
             {
                 // Tampilkan pesan error
-                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                MessageBox.Show("There is an error: " + ex.Message);
             }
             finally
             {
@@ -102,11 +103,6 @@ namespace Shoes_Laundry.view
         }
 
         private void dataemployee_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
